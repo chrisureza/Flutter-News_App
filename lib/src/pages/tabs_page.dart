@@ -44,7 +44,7 @@ class _Navigation extends StatelessWidget {
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.person_outline),
-          title: Text('General'),
+          title: Text('Top News'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.category),

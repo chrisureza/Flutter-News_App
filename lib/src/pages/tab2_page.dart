@@ -32,7 +32,7 @@ class _CategoryList extends StatelessWidget {
     final categories = Provider.of<NewsService>(context).categories;
 
     return Container(
-      height: 120,
+      height: 130,
       child: ListView.builder(
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
@@ -55,7 +55,7 @@ class _CategoryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final newsService = Provider.of<NewsService>(context);
-    final itemName = category.name;
+    // final itemName = category.name;
     return GestureDetector(
       onTap: () {
         newsService.seletedCategory = category.name;
@@ -83,7 +83,7 @@ class _CategoryButton extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              '${itemName[0].toUpperCase()}${itemName.substring(1)}',
+              category.alias,
               style: TextStyle(
                 color: newsService.seletedCategory == category.name
                     ? myTheme.accentColor

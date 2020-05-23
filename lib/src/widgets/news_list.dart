@@ -29,21 +29,24 @@ class _NewsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        _CardTopBar(article, index),
-        _CardTitle(article),
-        _CardImage(article),
-        _CardBody(article),
-        SizedBox(
-          height: 15,
-        ),
-        _CardButtons(),
-        SizedBox(
-          height: 10,
-        ),
-        Divider(),
-      ],
+    return Container(
+      margin: EdgeInsets.only(top: 10),
+      child: Column(
+        children: <Widget>[
+          _CardTopBar(article, index),
+          _CardTitle(article),
+          _CardImage(article),
+          _CardBody(article),
+          SizedBox(
+            height: 15,
+          ),
+          _CardButtons(article),
+          SizedBox(
+            height: 10,
+          ),
+          Divider(),
+        ],
+      ),
     );
   }
 }
@@ -129,6 +132,9 @@ class _CardBody extends StatelessWidget {
 }
 
 class _CardButtons extends StatelessWidget {
+  final Article article;
+  const _CardButtons(this.article);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -148,7 +154,10 @@ class _CardButtons extends StatelessWidget {
           //   width: 10.0,
           // ),
           RawMaterialButton(
-            onPressed: () {},
+            onPressed: () {
+              print(article.content);
+              Navigator.pushNamed(context, 'full-article');
+            },
             fillColor: myTheme.accentColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),

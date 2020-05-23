@@ -15,7 +15,6 @@ class _Tab1PageState extends State<Tab1Page>
     final newsService = Provider.of<NewsService>(context);
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top: 20),
         child: (newsService.headlines.length == 0)
             ? Center(
                 child: CircularProgressIndicator(),
