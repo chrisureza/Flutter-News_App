@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_news_provider/src/pages/full_article.dart';
 import 'package:flutter_news_provider/src/pages/tabs_page.dart';
 import 'package:flutter_news_provider/src/services/news_service.dart';
 import 'package:flutter_news_provider/src/theme/theme.dart';
@@ -26,7 +25,6 @@ class MyApp extends StatelessWidget {
           initialRoute: 'home',
           routes: {
             'home': (BuildContext context) => TabsPage(),
-            'full-article': (BuildContext context) => FullArticle(),
           }),
     );
   }

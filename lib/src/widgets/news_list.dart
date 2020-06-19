@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_provider/src/models/news_models.dart';
 import 'package:flutter_news_provider/src/theme/theme.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewsList extends StatelessWidget {
   final List<Article> news;
@@ -154,10 +155,7 @@ class _CardButtons extends StatelessWidget {
           //   width: 10.0,
           // ),
           RawMaterialButton(
-            onPressed: () {
-              print(article.content);
-              Navigator.pushNamed(context, 'full-article');
-            },
+            onPressed: () => _launchURL(article.url),
             fillColor: myTheme.accentColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
@@ -170,5 +168,13 @@ class _CardButtons extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
